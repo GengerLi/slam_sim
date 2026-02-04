@@ -83,3 +83,8 @@ source ~/.bashrc
 source install/setup.bash
 ros2 launch ros2_livox_simulation livox_simulation.launch.py 
 ```
+## 5. 启动里程计
+```bash
+source install/setup.bash 
+ros2 launch fast_lio mapping.launch.py 
+```

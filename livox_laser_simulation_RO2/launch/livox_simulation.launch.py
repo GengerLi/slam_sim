@@ -12,7 +12,7 @@ def generate_launch_description():
     #全局参数
     package_name = 'ros2_livox_simulation'
     robot_name = 'my_robot'
-    world_file_name = 'bigHHH.world'
+    world_file_name = 'custom_room.world'
     use_sim_time = True
     gui = True
     # ============================================================================
@@ -39,7 +39,12 @@ def generate_launch_description():
         os.environ['GAZEBO_MODEL_PATH'] = pkg_share
     # ============================================================================
     
-    
+    declare_use_sim_time = DeclareLaunchArgument(
+    'use_sim_time',
+    default_value=str(use_sim_time),
+    description='Use simulation (Gazebo) clock if true'
+)
+
     # ============================================================================
     #gazebo
     gazebo_launch = IncludeLaunchDescription(
@@ -62,13 +67,16 @@ def generate_launch_description():
         executable='robot_state_publisher',
         name='robot_state_publisher',
         output='screen',
-        parameters=[{'robot_description': robot_description}],
+        parameters=[{'robot_description': robot_description},{'use_sim_time': use_sim_time_arg}],
     )
 
     # joint_state_publisher
     joint_state_publisher = Node(
         package='joint_state_publisher',
         executable='joint_state_publisher',
+        parameters=[
+        {'use_sim_time': use_sim_time_arg}
+    ]
     )
 
     #spawn_entity
@@ -86,6 +94,9 @@ def generate_launch_description():
     executable='rviz2',
     name='rviz2',
     arguments=['-d',rviz_path],
+    parameters=[
+        {'use_sim_time': use_sim_time_arg}
+    ]
     )
 
     #load_joint_state_controller
@@ -109,6 +120,7 @@ def generate_launch_description():
 
 
     ld = LaunchDescription()
+    ld.add_action(declare_use_sim_time)
     ld.add_action(gazebo_launch)
     ld.add_action(robot_state_publisher)
     ld.add_action(joint_state_publisher)

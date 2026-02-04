@@ -27,9 +27,9 @@
                 <!-- 里程计frame id -->
                 <odometry_frame>odom</odometry_frame>   
                   <!-- 是否发布里程计 -  -->
-                <publish_odom>false</publish_odom> 
+                <publish_odom>true</publish_odom> 
                 <!-- 是否发布里程计tf -->
-                <publish_odom_tf>false</publish_odom_tf>
+                <publish_odom_tf>true</publish_odom_tf>
                 
                 <robot_base_frame>base_footprint</robot_base_frame>  
                 
