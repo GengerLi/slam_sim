@@ -43,35 +43,6 @@ sudo chmod 777 ~/.gazebo/models
 sudo chmod 777 ~/.gazebo/models/*
 ```
 
-### 2.2 配置环境变量
-通过修改`.bashrc`文件设置Gazebo和ROS 2相关路径：
-```bash
-
-gedit ~/.bashrc
-```
-
-在文件末尾添加以下内容（按实际Gazebo版本调整路径中的`11`）：
-```bash
-# Gazebo资源路径配置
-export GAZEBO_RESOURCE_PATH=/usr/share/gazebo-11:$GAZEBO_RESOURCE_PATH
-export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:/usr/share/gazebo/models:/usr/share/gazebo-11/models
-export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins
-export GAZEBO_RESOURCE_PATH=${GAZEBO_RESOURCE_PATH}:/usr/share/gazebo:/usr/share/gazebo-11
-
-# 库文件路径配置（ROS 2及系统库）
-export LD_LIBRARY_PATH=/opt/ros/humble/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
-
-# （可选）conda环境配置
-export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH  
-# （可选）阻止Gazebo从互联网自动下载模型（加速本地加载）
-export GAZEBO_MODEL_DATABASE_URI=""
-```
-
-添加完成后，生效配置：
-```bash
-source ~/.bashrc
-```
 
 ## 3. 编译项目
 ```bash
@@ -88,3 +59,7 @@ ros2 launch ros2_livox_simulation livox_simulation.launch.py
 source install/setup.bash 
 ros2 launch fast_lio mapping.launch.py 
 ```
+## 6.运行Nav2
+```bash
+source install/setup.bash
+ros2 launch 

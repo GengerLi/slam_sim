@@ -110,8 +110,6 @@ Follow [livox_ros_driver Installation](https://github.com/Livox-SDK/livox_ros_dr
 
 
 Clone the repository and catkin_make:
-
-```sh
 ```sh
     cd ~/$A_ROS_DIR$/src
     git clone https://github.com/LihanChen2004/Point-LIO.git
