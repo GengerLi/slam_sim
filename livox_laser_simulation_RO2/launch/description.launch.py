@@ -14,7 +14,6 @@ def generate_launch_description():
     rviz_file_name = 'my_robot.rviz'
     # ============================================================================
 
-
     # ============================================================================
     #包路径
     pkg_path = get_package_share_directory(package_name)

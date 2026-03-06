@@ -13,6 +13,9 @@ controller_manager:
       type: joint_state_broadcaster/JointStateBroadcaster
       # 该控制器是否使用仿真时间（与全局保持一致，启用仿真时间）
       use_sim_time: true
+
+    diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
     
 
 
@@ -32,3 +35,29 @@ myrobot_joint_state_broadcaster:
     state_interfaces:
       - position  # 关节位置（角度/位移）
       - velocity  # 关节速度（角速度/线速度）
+
+diff_drive_controller:
+  ros__parameters:
+
+    left_wheel_names:
+      - ahead_left_wheel_joint
+      - bhind_left_wheel_joint
+
+    right_wheel_names:
+      - ahead_right_wheel_joint
+      - bhind_right_wheel_joint
+
+    wheel_separation: 0.14
+    wheel_radius: 0.04
+
+    publish_rate: 50
+
+    base_frame_id: base_link
+
+    use_stamped_vel: false
+
+    cmd_vel_timeout: 0.5
+
+    enable_odom_tf: true
+
+    odom_frame_id: odom

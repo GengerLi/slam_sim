@@ -45,7 +45,7 @@ install(DIRECTORY include/
 )
 
 install(
-  DIRECTORY launch rviz urdf worlds config meshes python_scripts
+  DIRECTORY launch rviz urdf worlds config meshes python_scripts resourse
   DESTINATION share/${PROJECT_NAME}
 )
 

@@ -10,14 +10,11 @@ sudo apt install \
   ros-humble-xacro  
 ```
 
-## 2. 环境配置
-
-
 ## 4. 运行仿真
 ```bash
 source install/setup.bash
 ros2 launch ros2_livox_simulation livox_simulation.launch.py 
-```
+```           
 ## 5. 启动里程计
 ```bash
 source install/setup.bash 
