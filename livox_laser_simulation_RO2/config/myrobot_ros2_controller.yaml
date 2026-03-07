@@ -50,7 +50,7 @@ diff_drive_controller:
     wheel_separation: 0.14
     wheel_radius: 0.04
 
-    publish_rate: 50
+    publish_rate: 50.0
 
     base_frame_id: base_link
 

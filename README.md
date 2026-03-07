@@ -13,7 +13,7 @@ sudo apt install \
 ## 4. 运行仿真
 ```bash
 source install/setup.bash
-ros2 launch ros2_livox_simulation livox_simulation.launch.py 
+ros2 launch ros2_livox_simulation livox_simulation.launch.py world:=RC26_renwu
 ```           
 ## 5. 启动里程计
 ```bash

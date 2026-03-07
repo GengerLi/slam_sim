@@ -20,6 +20,7 @@ def generate_launch_description():
     sim_y = LaunchConfiguration("sim_y")
     sim_z = LaunchConfiguration("sim_z")
     sim_yaw = LaunchConfiguration("sim_yaw")
+    sim_world = LaunchConfiguration("world")
     point_lio_cfg_dir = LaunchConfiguration("point_lio_cfg_dir")
     map_yaml = LaunchConfiguration("map")
     nav2_params_file = LaunchConfiguration("nav2_params_file")
@@ -57,6 +58,10 @@ def generate_launch_description():
         "sim_yaw",
         default_value="3.14",
         description="Spawn yaw(rad) for livox simulation.",
+    )
+    declare_world = DeclareLaunchArgument(
+        "world",
+        description="Gazebo world name under ros2_livox_simulation/resourse/worlds, without .world suffix (required).",
     )
     declare_point_lio_cfg = DeclareLaunchArgument(
         "point_lio_cfg_dir",
@@ -125,6 +130,7 @@ def generate_launch_description():
         ),
         launch_arguments={
             "use_sim_time": use_sim_time,
+            "world": sim_world,
             "x": sim_x,
             "y": sim_y,
             "z": sim_z,
@@ -191,6 +197,7 @@ def generate_launch_description():
             declare_sim_y,
             declare_sim_z,
             declare_sim_yaw,
+            declare_world,
             declare_point_lio_cfg,
             declare_map_yaml,
             declare_nav2_params,

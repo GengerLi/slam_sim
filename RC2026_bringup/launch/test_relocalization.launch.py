@@ -30,6 +30,7 @@ def generate_launch_description():
     sim_y = LaunchConfiguration("sim_y")
     sim_z = LaunchConfiguration("sim_z")
     sim_yaw = LaunchConfiguration("sim_yaw")
+    world = LaunchConfiguration("world")
     point_lio_cfg_dir = LaunchConfiguration("point_lio_cfg_dir")
     launch_point_lio = LaunchConfiguration("launch_point_lio")
     launch_relocalization = LaunchConfiguration("launch_relocalization")
@@ -49,6 +50,7 @@ def generate_launch_description():
         launch_arguments={
             "use_sim_time": use_sim_time,
             "gui": gui,
+            "world": world,
             "x": sim_x,
             "y": sim_y,
             "z": sim_z,
@@ -119,6 +121,10 @@ def generate_launch_description():
             DeclareLaunchArgument("sim_y", default_value="1.0"),
             DeclareLaunchArgument("sim_z", default_value="0.0"),
             DeclareLaunchArgument("sim_yaw", default_value="3.14"),
+            DeclareLaunchArgument(
+                "world",
+                description="Gazebo world name under ros2_livox_simulation/resourse/worlds, without .world suffix (required).",
+            ),
             DeclareLaunchArgument(
                 "point_lio_cfg_dir",
                 default_value=os.path.join(pkg_point_lio, "config", "mid360.yaml"),

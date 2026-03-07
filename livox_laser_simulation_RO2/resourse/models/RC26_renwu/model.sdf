@@ -1,0 +1,45 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='RC26_renwu'>
+    <static>true</static>
+    <link name='link'>
+      <!-- Keep arena flat, preserve yaw, and flip top/bottom so the front face is upward -->
+      <pose>0 0 0 3.14159 0 1.5708</pose>
+
+      <collision name='collision'>
+        <max_contacts>20</max_contacts>
+        <geometry>
+          <mesh>
+            <uri>model://RC26_renwu/meshes/RC26_renwu.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name='visual'>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <lighting>1</lighting>
+          <ambient>0.55 0.55 0.55 1</ambient>
+          <diffuse>0.65 0.65 0.65 1</diffuse>
+          <specular>0.05 0.05 0.05 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <geometry>
+          <mesh>
+            <uri>model://RC26_renwu/meshes/RC26_renwu.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
